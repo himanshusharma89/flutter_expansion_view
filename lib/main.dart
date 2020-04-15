@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_expansion_view/criteria.dart';
 import 'package:flutter_expansion_view/expansionPanel.dart';
 import 'package:flutter_expansion_view/expansionTile.dart';
 
@@ -58,7 +57,7 @@ class Home extends StatelessWidget {
                 Expanded(
                   child: RaisedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>Criterias()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>Expansionpanel()));
                     },
                     child: Text(
                       'ExpansionPanel'

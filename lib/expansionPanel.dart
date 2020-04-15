@@ -1,84 +1,87 @@
 import 'package:flutter/material.dart';
 
-class Expansionpanel extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('ExpansionPanelList'),
-      ),
-      body: MyStatefulWidget(),
-    );
-  }
+class Expansionpanel extends StatefulWidget {
+  Expansionpaneltate createState() =>  Expansionpaneltate();
 }
 
-class Item {
-  Item({
-    this.expandedValue,
-    this.headerValue,
-    this.isExpanded = false,
-  });
-
-  String expandedValue;
-  String headerValue;
+class NewItem {
   bool isExpanded;
+  final String header;
+  final Widget body;
+  final Icon iconpic;
+  NewItem(this.isExpanded, this.header, this.body, this.iconpic);
 }
 
-List<Item> generateItems(int numberOfItems) {
-  return List.generate(numberOfItems, (int index) {
-    return Item(
-      headerValue: 'Panel $index',
-      expandedValue: 'This is item number $index',
-    );
-  });
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
-
-  @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  List<Item> _data = generateItems(8);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        child: _buildPanel(),
+class Expansionpaneltate extends State<Expansionpanel> {
+  List<NewItem> items = <NewItem>[
+    NewItem(
+      false,
+      'Header',
+      Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          children: <Widget>[
+            Text('data'),
+            Text('data'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text('data'),
+                Text('data'),
+                Text('data'),
+              ],
+            ),
+            Radio(value: null, groupValue: null, onChanged: null)  //put the children here
+          ]
+        )
       ),
-    );
-  }
+      Icon(Icons.image)
+    ),
+  ];
 
-  Widget _buildPanel() {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _data[index].isExpanded = !isExpanded;
-        });
-      },
-      children: _data.map<ExpansionPanel>((Item item) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: Text(item.headerValue),
-            );
-          },
-          body: ListTile(
-            title: Text(item.expandedValue),
-            subtitle: Text('You can add your data here'),
-            trailing: Icon(Icons.delete),
-            onTap: () {
+  ListView List_Criteria;
+
+  Widget build(BuildContext context) {
+    List_Criteria = ListView(
+      children: [
+         Padding(
+          padding:  EdgeInsets.all(10.0),
+          child:  ExpansionPanelList(
+            expansionCallback: (int index, bool isExpanded) {
               setState(() {
-                _data.removeWhere((currentItem) => item == currentItem);
+                items[index].isExpanded = !items[index].isExpanded;
               });
-            }),
-          isExpanded: item.isExpanded,
-        );
-      }).toList(),
+            },
+            children: items.map((NewItem item) {
+              return ExpansionPanel(
+                headerBuilder: (BuildContext context, bool isExpanded) {
+                  return  ListTile(
+                    leading: item.iconpic,
+                    title:  Text(
+                      item.header,
+                      textAlign: TextAlign.left,
+                      style:  TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                  );
+                },
+                isExpanded: item.isExpanded,
+                body: item.body,
+              );
+            }).toList(),
+          ),
+        ),
+      ],
     );
+
+    Scaffold scaffold =  Scaffold(
+      appBar:  AppBar(
+        title:  Text("ExpansionPanelList"),
+      ),
+      body: List_Criteria,
+    );
+    return scaffold;
   }
 }
