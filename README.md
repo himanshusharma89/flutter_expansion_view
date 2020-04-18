@@ -1,6 +1,6 @@
 # Flutter Expansion View
 
-A new Flutter template to help fellow developers in creating expansion vire using `ExpansionTile` and `ExpansionPanelList`.
+A new Flutter template to help fellow developers in creating expansion view using `ExpansionTile` and `ExpansionPanelList`.
 
 In this template you will create the following expansion view:
 
