@@ -3,7 +3,8 @@
 A new Flutter template to help fellow developers in creating expansion vire using `ExpansionTile` and `ExpansionPanelList`.
 
 In this template you will create the following expansion view:
-![Expansion View](Expansion View.gif)
+
+![Expansion View](https://github.com/himanshusharma89/flutter_expansion_view/blob/master/Expansion%20View.gif)
 
 ## Getting Started
 
