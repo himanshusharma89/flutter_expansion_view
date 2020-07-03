@@ -6,6 +6,8 @@ In this template you will create the following expansion view:
 
 ![Expansion View](https://github.com/himanshusharma89/flutter_expansion_view/blob/master/Expansion%20View.gif)
 
+For more information on the examples, you can see my [article](https://medium.com/flutter-community/flutter-expansion-collapse-view-fde9c51ac438).
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
