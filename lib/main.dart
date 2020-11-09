@@ -11,10 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.dark
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue, brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
@@ -34,7 +31,7 @@ class Home extends StatelessWidget {
       ),
       // backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:30.0),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -42,12 +39,14 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: RaisedButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>Expansiontile()));
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  Expansiontile()));
                     },
-                    child: Text(
-                      'ExpansionTile'
-                    ),
+                    child: Text('ExpansionTile'),
                   ),
                 ),
               ],
@@ -56,12 +55,14 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: RaisedButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>Expansionpanel()));
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  Expansionpanel()));
                     },
-                    child: Text(
-                      'ExpansionPanel'
-                    ),
+                    child: Text('ExpansionPanel'),
                   ),
                 ),
               ],
