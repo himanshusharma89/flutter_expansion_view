@@ -6,22 +6,17 @@ class Expansiontile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          'Expansion Tile'
-        ),
+        title: Text('Expansion Tile'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: Column(
           children: <Widget>[
-            SizedBox(height:20.0),
+            SizedBox(height: 20.0),
             ExpansionTile(
               title: Text(
                 "Title",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold
-                ),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
               children: <Widget>[
                 ExpansionTile(
@@ -35,9 +30,7 @@ class Expansiontile extends StatelessWidget {
                   ],
                 ),
                 ListTile(
-                  title: Text(
-                    'data'
-                  ),
+                  title: Text('data'),
                 )
               ],
             ),
